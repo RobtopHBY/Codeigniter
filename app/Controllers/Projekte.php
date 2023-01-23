@@ -2,13 +2,19 @@
 
 namespace App\Controllers;
 
+use CodeIgniter\Model;
+use Config\App;
+
 class Projekte extends BaseController {
     public function create() {
         $data = $this->request->getPost();
-       $this->load->model('ProjekteModel');
-       $this->ProjekteModel->createProject('id', 'Project Description');
+       //$this->load->model('ProjekteModel');
+       $this->ProjekteModel->createProject('id', 'description');
        $ProjekteModel = new \ProjekteModel();
-       $ProjekteModel->createProject($data);
+       $id = $data['id'];
+       echo($id);
+       die();
+       $ProjekteModel->createProject($id, $description);
         echo('erfolg');
 
     }
